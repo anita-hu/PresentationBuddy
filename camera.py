@@ -6,7 +6,7 @@ faceCascade = cv2.CascadeClassifier(facePath)
 
 smilePath = "data/haarcascade_smile.xml"
 smileCascade = cv2.CascadeClassifier(smilePath)
-
+    
 def Detect():
     # counter used to clear points for the rectangle
     counter1 = 0
@@ -14,7 +14,8 @@ def Detect():
     global facepts
     global smilepts
     global meter
-    meter = 50
+    meter = 3
+
     while True:
         ret, image = VideoCamera().read()  # Capture frame-by-frame
         image = cv2.resize(image, (0, 0), fx=0.4, fy=0.4)
@@ -24,7 +25,7 @@ def Detect():
         except:
             # probably should try something else to end the thread
             break
-
+        
         counter1 += 1
         counter2 += 1
 
@@ -37,7 +38,6 @@ def Detect():
             roi_gray = gray[y:y+h, x:x+w]
 
             facepts = x, y, w, h
-            #meter +=10
 
             # Find smile
             smile = smileCascade.detectMultiScale(roi_gray, 1.7, 14)
@@ -47,7 +47,7 @@ def Detect():
                 counter2 = 0
                 a, b, c, d = facepts
                 smilepts = (x+a), (y+b), w, h
-                #meter += 10
+                meter += 10
 
         if counter1 == 2:
             facepts = (1,1,1,1)
@@ -91,12 +91,12 @@ class VideoCamera(object):
         except NameError:
             print('waiting')
        
-        cv2.rectangle(image, (20, 210), (meter+20, 220), (0, 255, 0), cv2.FILLED)
+        cv2.rectangle(image, (140, 260), (meter+140, 270), (0, 255, 0), cv2.FILLED)
 
              
         # smile meter
-        #font = ImageFont.truetype('Roboto-Regular.ttf',30)
-        #draw.text((5,300),'smile meter:', font=font)
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(image,'Smile meter:',(5,270), font, 0.6,(0,255,0), 2)
         
 
         ret, jpeg = cv2.imencode('.jpg', image)
