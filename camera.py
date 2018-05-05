@@ -53,7 +53,8 @@ def Detect():
             facepts = (1,1,1,1)
         if counter2 == 2:
             smilepts = (1,1,1,1)
-            #meter -= 2
+        if meter > 360:
+            meter = 360
         
 
 
@@ -87,12 +88,12 @@ class VideoCamera(object):
             # draw rectangles for smile
             x2, y2, w2, h2 = smilepts
             cv2.rectangle(image, (x2, y2), (x2+w2, y2+h2), (255, 255, 255), 2)
-
+            
         except NameError:
             print('waiting')
        
         cv2.rectangle(image, (140, 260), (meter+140, 270), (0, 255, 0), cv2.FILLED)
-
+        cv2.rectangle(image, (140, 260), (500, 270), (255, 255, 255), 2)
              
         # smile meter
         font = cv2.FONT_HERSHEY_SIMPLEX
