@@ -1,4 +1,4 @@
-#PresentationBuddy
+# PresentationBuddy
 
 ## Inspiration
 Presentation is an important component of the professional world. Creating and presenting a presentation that effectively communicates your purpose is critical in order to share your ideas. We created presentation buddy to help people improve their presentation skills and share their ideas in a professional manner.
