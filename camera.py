@@ -6,6 +6,10 @@ faceCascade = cv2.CascadeClassifier(facePath)
 
 smilePath = "data/haarcascade_smile.xml"
 smileCascade = cv2.CascadeClassifier(smilePath)
+
+def startmeter():
+    global meter
+    meter = 3
     
 def Detect():
     # counter used to clear points for the rectangle
@@ -14,8 +18,7 @@ def Detect():
     global facepts
     global smilepts
     global meter
-    meter = 3
-
+    
     while True:
         ret, image = VideoCamera().read()  # Capture frame-by-frame
         image = cv2.resize(image, (0, 0), fx=0.4, fy=0.4)
@@ -53,9 +56,11 @@ def Detect():
             facepts = (1,1,1,1)
         if counter2 == 2:
             smilepts = (1,1,1,1)
+            meter -= 10
         if meter > 360:
             meter = 360
-        
+        if meter <= 3:
+            meter = 3
 
 
 class VideoCamera(object):
@@ -91,8 +96,13 @@ class VideoCamera(object):
             
         except NameError:
             print('waiting')
-       
-        cv2.rectangle(image, (140, 260), (meter+140, 270), (0, 255, 0), cv2.FILLED)
+
+        try:
+            cv2.rectangle(image, (140, 260), (meter+140, 270), (0, 255, 0), cv2.FILLED)
+
+        except NameError:
+            cv2.rectangle(image, (140, 260), (143, 270), (0, 255, 0), cv2.FILLED)
+            
         cv2.rectangle(image, (140, 260), (500, 270), (255, 255, 255), 2)
              
         # smile meter

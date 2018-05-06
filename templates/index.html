@@ -1,10 +1,205 @@
-<html>
-  <head>
-    <title>Video Streaming Demonstration</title>
-  </head>
-  <body>
-    <h1>Video Streaming Demonstration</h1>
-    <img id="bg" src="{{ url_for('video_feed') }}" height=420 width=640>
-    <p>{{ variable }}</p>
-  </body>
+<!Doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8"/>
+	<title>Presentation Buddy</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<style>
+	/* http://meyerweb.com/eric/tools/css/reset/
+	   v2.0 | 20110126
+	   License: none (public domain)
+	*/
+
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed,
+	figure, figcaption, footer, header, hgroup,
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure,
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	body {
+		line-height: 1;
+	}
+	ol, ul {
+		list-style: none;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+
+	</style>
+	<style>
+	.container{
+	  display:grid;
+	  grid-template-columns: 6fr 4fr;
+	  grid-template-rows:1fr 5fr 2fr 3fr;
+	  height:100vh;
+	  background-color:black;
+	  font-size:25px;
+	  color:white;
+	  font-family: 'Open Sans', sans-serif;
+	  grid-gap:20px;
+	}
+
+	h1{
+	  grid-column: 1/3;
+	  grid-row: 1/2;
+	  font-size:40px;
+	  padding-top:30px;
+	  padding-left:120px;
+	  font-family: 'Raleway', sans-serif;
+	}
+
+	#stream {
+	  grid-column:1/2;
+	  grid-row:2/4;
+	  padding:20px;
+	}
+
+	#video{
+	  padding-left:100px;
+	}
+
+	#timer{
+	  grid-column: 1/2;
+	  grid-row: 4/5;
+	  padding-left:120px;
+	  display:grid;
+	  grid-template-columns: 2fr 1fr 1fr;
+	  grid-template-rows:1fr;
+	  padding-right:70px;
+	}
+
+	#timebox{
+	  grid-column:1/2;
+	  font-size:85px;
+	  text-align: center;
+	  padding-right:30px;
+	}
+
+	#button-reset{
+	  grid-column:3/4;
+	}
+
+	#button-start{
+	  grid-column:2/3;
+	}
+
+	#button-stop{
+	  grid-column:2/3;
+	  display:none;
+	}
+
+	button{
+	  font-size:25px;
+	  color:white;
+	  background:black;
+	  border-color:white;
+	  border-width:3px;
+	  height:40%;
+	  font-family: 'Raleway', sans-serif;
+	  margin-top:13px;
+	}
+
+	#lapdetails{
+	  background-color:black;
+	  color:white;
+	}
+
+	#feedbacks{
+	  grid-column: 2/3;
+	  grid-row: 2/3;
+	}
+
+	.feedback{
+	  color:#88f954;
+	  line-height: 150%;
+	  padding-top:20px;
+	}
+
+	#info{
+	  grid-column:2/3;
+	  grid-row:3/5;
+	  line-height: 150%;
+	  font-size:23px;
+	  padding-right:80px;
+	}
+
+	h2{
+	  font-size:26px;
+	  padding-bottom:10px;
+	}
+
+	</style>
+	<script src='/static/timer.js'></script>
+	<script src='/static/p5.dom.js'></script>
+	<script src='/static/p5.js'></script>
+	<script src='/static/p5.sound.js'></script>
+	<script src='/static/sketch.js'></script>
+
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>Presentation Buddy</h1>
+
+    <div id="stream">
+			<img id="video" src="{{ url_for('video_feed') }}" height=360 width=600>
+    </div>
+
+    <div id="feedbacks">
+      <h2>Real-Time Feedback</h2>
+      <h3 class="feedback" id="feedback1"></h3>
+      <h3 class="feedback" id="feedback2"></h3>
+      <h3 class="feedback" id="feedback3"></h3>
+    </div>
+
+    <div id="timer">
+
+			<p id="timebox"><span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span></p>
+			<button id="button-start">Start</button>
+			<button id="button-stop">Stop</button>
+			<button id="button-reset">Reset</button>
+
+    </div>
+
+    <div id="info">
+      <h2>About</h2>
+      <p>Presentation Buddy is designed to give real-time feedbacks to presentations. Users can receive feedback about their facial expression and speech volume, as well as useful presentation tips.</p>
+    </div>
+
+  </div>
+
+</body>
+
 </html>
