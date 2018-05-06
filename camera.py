@@ -34,6 +34,8 @@ def Detect():
 
         # Find face
         faces = faceCascade.detectMultiScale(gray, 1.05, 10)
+
+        print(faces)
         
         # Draw a rectangle around the faces
         for (x, y, w, h) in faces:
@@ -43,7 +45,7 @@ def Detect():
             facepts = x, y, w, h
 
             # Find smile
-            smile = smileCascade.detectMultiScale(roi_gray, 1.7, 14)
+            smile = smileCascade.detectMultiScale(roi_gray, 1.7, 10)
 
             # Draw a rectangle around the smile
             for (x, y, w, h) in smile:
