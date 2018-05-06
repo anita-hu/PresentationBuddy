@@ -12,10 +12,10 @@ The tips and timer are made through javascript. The tips are synced with the tim
 
 ## Challenges we run into
 A few of the major challenges we ran into included:
--- Using Flask to create an interface between Python and JavaScript
--- Building and implementing the web application with limited processing power
--- Connecting the backend Python code to work in sync with Flask for the Smile Meter
--- No Red Bull
+- Using Flask to create an interface between Python and JavaScript
+- Building and implementing the web application with limited processing power
+- Connecting the backend Python code to work in sync with Flask for the Smile Meter
+- No Red Bull
 
 ## Accomplishments that we're proud of
 -- Got the Smile Meter working after hours of troubleshooting
