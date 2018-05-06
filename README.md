@@ -1,4 +1,4 @@
-Red bullRed bull# PresentationBuddy
+#PresentationBuddy
 
 ## Inspiration
 Presentation is an important component of the professional world. Creating and presenting a presentation that effectively communicates your purpose is critical in order to share your ideas. We created presentation buddy to help people improve their presentation skills and share their ideas in a professional manner.
@@ -18,11 +18,11 @@ A few of the major challenges we ran into included:
 - No Red Bull
 
 ## Accomplishments that we're proud of
--- Got the Smile Meter working after hours of troubleshooting
--- Building a timer to keep track of the duration of the presentation
--- Interfacing Python and JavaScript through Flask in a more than satisfactory manner
--- Doing all of that without Red Bull
+- Got the Smile Meter working after hours of troubleshooting
+- Building a timer to keep track of the duration of the presentation
+- Interfacing Python and JavaScript through Flask in a more than satisfactory manner
+- Doing all of that without Red Bull
 
 ## What's next for PresentationBuddy
--- Convert Presentation Buddy to a desktop app
--- Add other types of feedbacks (such as volume, gesture, etc.)
+- Convert Presentation Buddy to a desktop app
+- Add other types of feedbacks (such as volume, gesture, etc.)
