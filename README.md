@@ -11,7 +11,7 @@ Presentation Buddy is created using flask. A smile meter is created in the video
 The tips and timer are made through javascript. The tips are synced with the timer and changed every 5 seconds.
 
 ## Challenges we ran into
-A few of the major challenges we ran into included:\
+A few of the major challenges we ran into included:
 - Using Flask to create an interface between Python and JavaScript
 - Building and implementing the web application with limited processing power
 - Connecting the backend Python code to work in sync with Flask for the Smile Meter
