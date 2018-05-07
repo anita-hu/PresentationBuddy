@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-# Presentation Buddy
-=======
 # PresentationBuddy
 
->>>>>>> a8a16826b8812ef228787a5b237b370e0c03de89
 ## Inspiration
 Presentation is an important component of the professional world. Creating and presenting a presentation that effectively communicates your purpose is critical in order to share your ideas. We created presentation buddy to help people improve their presentation skills and share their ideas in a professional manner.
 
@@ -14,12 +10,8 @@ Presentation Buddy is designed to give real-time feedbacks to presentations. Use
 Presentation Buddy is created using flask. A smile meter is created in the video stream with OpenCV. Whenever the user smiles, the smile meter increase and when the user does not the meter decreases.\
 The tips and timer are made through javascript. The tips are synced with the timer and changed every 5 seconds.
 
-## Challenges we run into
-<<<<<<< HEAD
+## Challenges we ran into
 A few of the major challenges we ran into included:\
-=======
-A few of the major challenges we ran into included:
->>>>>>> a8a16826b8812ef228787a5b237b370e0c03de89
 - Using Flask to create an interface between Python and JavaScript
 - Building and implementing the web application with limited processing power
 - Connecting the backend Python code to work in sync with Flask for the Smile Meter
