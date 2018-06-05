@@ -26,3 +26,8 @@ A few of the major challenges we ran into included:
 ## What's next for PresentationBuddy
 - Convert Presentation Buddy to a desktop app
 - Add other types of feedbacks (such as volume, gesture, etc.)
+
+## Usage
+1. Install Python dependencies: cv2, flask. (wish that pip install works like a charm)
+2. Run "python main.py".
+3. Navigate the browser to the local webpage.
